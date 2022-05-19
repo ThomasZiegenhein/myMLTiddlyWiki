@@ -421,6 +421,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>5 Main Types of Branches</li>
+
 <li>A-NN</li>
 
 <li>A/B Testing</li>
@@ -845,6 +847,8 @@ Error message and password prompt
 
 <li>Gensim</li>
 
+<li>git</li>
+
 <li>Global Accelerator</li>
 
 <li>GloVe</li>
@@ -1183,6 +1187,8 @@ Error message and password prompt
 
 <li>read()</li>
 
+<li>ReBasing</li>
+
 <li>Recall</li>
 
 <li>Receiver Operating Characteristic</li>
@@ -1509,8 +1515,24 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20220405212635886" modified="20220511174408188" tags="ML root MLRoot" title="_ML-Pipeline">
-<pre>! Deployment
+<div created="20220405212635886" modified="20220518225759043" tags="ML root MLRoot" title="_ML-Pipeline">
+<pre>! Data Versioning
+
+!! Tools
+
+!! Methods
+
+! Code Maintaining
+
+!! Tools
+
+[[GitHub]]
+
+!! Methods
+
+[[git]] , [[linting]]
+
+! Deployment
 
 !! Tools
 
@@ -1606,13 +1628,6 @@ Error message and password prompt
 
 !!! NLP
 [[Feature Engineering NLP]]
-
-
-! Data Versioning
-
-!! Tools
-
-!! Methods
 
 ! Model Tuning
 
@@ -10963,7 +10978,7 @@ Error message and password prompt
 <div created="20220405204221973" modified="20220405205547147" title="$:/state/toc/Sampling-Sampling Error--1987545597">
 <pre>close</pre>
 </div>
-<div created="20220509191454206" list="_ML-Pipeline [[k8s Nodes]] [[Worker k8s Node]] [[Master k8s Node]] [[kubernetes basics]] POD kubeadm Minikube kubectl [[k8s API Server]] Kubelet [[Container Runtime]] [[k8s Controller]] [[k8s Scheduler]] etcd kubernetes [[Docker Basics]] Docker [[Container Service]] $:/Import GettingStarted" modified="20220511174256281" title="$:/StoryList">
+<div created="20220518221002210" list="_ML-Pipeline ReBasing [[5 Main Types of Branches]] git CodeControl GettingStarted" modified="20220518225645892" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10979,7 +10994,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///C:/Users/tziegenhein/Documents/ml/ML.html&quot;
+            &quot;text&quot;: &quot;file:///C:/Users/tziegenhein/Documents/_repos/myMLTiddlyWiki/ML.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -10999,7 +11014,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/C:/Users/tziegenhein/Documents/ml/ML.html&quot;
+            &quot;text&quot;: &quot;/C:/Users/tziegenhein/Documents/_repos/myMLTiddlyWiki/ML.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -11780,8 +11795,8 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20210619162723443" dependents="" description="Basic theme" modified="20210619162723443" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" plugin-priority="0" server-url="https://tiddlywiki.com/library/v5.1.21/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.21/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.21">
 <pre></pre>
 </div>
-<div created="20210508003307783" modified="20220509191451696" title="$:/temp/search">
-<pre>Docker</pre>
+<div created="20210508003307783" modified="20220518222321966" title="$:/temp/search">
+<pre>machine</pre>
 </div>
 <div created="20210619162723214" modified="20210619162723214" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.21/index.html" url="https://tiddlywiki.com/library/v5.1.21/index.html">
 <pre>loaded</pre>
@@ -11894,6 +11909,9 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
         }
     }
 }</pre>
+</div>
+<div created="20220518222523165" modified="20220518225313679" tags="BestP git" title="5 Main Types of Branches">
+<pre>[img[./images/branching_workflows.png]]</pre>
 </div>
 <div created="20220405200416373" modified="20220405202419932" tags="Clustering Model ML" title="A-NN">
 <pre>Approximate Nearest Neighbor, multiple times faster than K-NN with a low error rate.
@@ -12973,6 +12991,18 @@ p-value can be calculated with the same degree of freedom and tables as [[Chi Sq
 <div created="20210514200104933" modified="20210514200112235" tags="NLP Libraries" title="Gensim">
 <pre></pre>
 </div>
+<div created="20220518221653721" modified="20220518225320958" tags="root" title="git">
+<pre>Best Practices:
+
+&lt;&lt;toc-selective-expandable 'git' tag[BestP]&gt;&gt;
+
+Principles:
+
+&lt;&lt;toc-selective-expandable 'git' tag[GitPr]&gt;&gt;
+
+
+</pre>
+</div>
 <div created="20210510170752068" modified="20210510170924656" tags="Definitions Networking [[Compute Service]] AWS" title="Global Accelerator">
 <pre>Sends data through the AWS network instead of the internet --&gt; No Congestions and faster delivery</pre>
 </div>
@@ -13344,7 +13374,7 @@ http://colah.github.io/posts/2015-08-Understanding-LSTMs/</pre>
 
 https://towardsdatascience.com/40-open-source-audio-datasets-for-ml-59dc39d48f06</pre>
 </div>
-<div created="20220208145406066" modified="20220414204314122" tags="root" title="Machine Learning">
+<div created="20220208145406066" modified="20220518222330557" tags="root" title="Machine Learning">
 <pre>&lt;&lt;toc-selective-expandable 'ML' tag[ML]&gt;&gt;</pre>
 </div>
 <div created="20210401204708859" modified="20220405213223987" tags="MLBasicsRoot root" title="Machine Learning Principles">
@@ -13875,6 +13905,18 @@ Runs all the major database engines. Has all the features, backups, desaster rec
 </div>
 <div created="20220409001519019" modified="20220409001624427" tags="SparkFunction Spark SparkTransformation" title="read()">
 <pre>Reads from a data source, is a mix of action and transformation. It does not performs the [[DAG]] but reads the first couple entries in order to guess the data type and retrieve headers</pre>
+</div>
+<div created="20220518224124449" modified="20220518225302519" tags="GitPr git" title="ReBasing">
+<pre>* 1. You create a branch
+* 2. The Main gets further developed
+* 3. Your branch is based on a commit from master in the past. This commit is called 'base'
+* 4 . Rebase let's you change the 'base' of your feature to another commit
+* 5. In the image, the branch is re-based to the latest commit of master
+* 6. The rebase process will change the commits of the feature branch
+* 7. Why do you do this? The branch code is changed instead of the main branch code. This creates a cleaner history. For example when you change it to the last commit, it appears as if the feature branch was just working on latest commit. This creates a linear history, which is easier to review instead of a big change caused by [[merge]]
+* 8. What is the downside? The commits of your feature are changed, already published code will change 
+
+[img[./images/gitrebase.svg]]</pre>
 </div>
 <div created="20210623172315346" modified="20220211231338196" tags="[[Confusion Matrix]] ML" title="Recall">
 <pre>TP/(ALL GROUND TRUTH POSITIVES) TP/(TP+FN) 
