@@ -665,6 +665,8 @@ Error message and password prompt
 
 <li>DAG</li>
 
+<li>Dash</li>
+
 <li>Data</li>
 
 <li>Data Analsis Concept</li>
@@ -940,6 +942,10 @@ Error message and password prompt
 <li>kubeadm</li>
 
 <li>kubectl</li>
+
+<li>Kubeflow</li>
+
+<li>Kubeflow Install</li>
 
 <li>Kubelet</li>
 
@@ -1397,6 +1403,8 @@ Error message and password prompt
 
 <li>Story Mapping</li>
 
+<li>Streamlit</li>
+
 <li>STS</li>
 
 <li>Subnet</li>
@@ -1515,7 +1523,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20220405212635886" modified="20220518225759043" tags="ML root MLRoot" title="_ML-Pipeline">
+<div created="20220405212635886" modified="20220607174619802" tags="ML root MLRoot" title="_ML-Pipeline">
 <pre>! Data Versioning
 
 !! Tools
@@ -1553,6 +1561,9 @@ Error message and password prompt
 ! Workflow Orchestration
 
 !! Tools
+
+*[[Kubeflow]]
+*[[Airflow]]
 
 !! Methods
 
@@ -1662,6 +1673,7 @@ Error message and password prompt
 !! Tools
 *  Demo: [[Gradio]] 
 *  Demo: [[Streamlit]]
+*  Demo: [[Dash]]
 *  In Jupyter Notebook : [[Voila]]
 *  Simple Enterprise Level: [[Django]]
 *  Web-app Enterprise Level: [[Flask]]
@@ -10978,7 +10990,7 @@ Error message and password prompt
 <div created="20220405204221973" modified="20220405205547147" title="$:/state/toc/Sampling-Sampling Error--1987545597">
 <pre>close</pre>
 </div>
-<div created="20220518221002210" list="_ML-Pipeline ReBasing [[5 Main Types of Branches]] git CodeControl GettingStarted" modified="20220518225645892" title="$:/StoryList">
+<div created="20220607143640972" list="Kubeflow Dash Gradio Streamlit GettingStarted" modified="20220607175335482" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -12500,6 +12512,9 @@ Acyclic: You cannot change transformation done in the past
 
 Series of Transformations on a dataset </pre>
 </div>
+<div created="20220607144157613" modified="20220607144220684" tags="Python FrontEnd Dashboard" title="Dash">
+<pre>Dashboard UI in Python - Simpler but less mature compared to a [[Flask]] app</pre>
+</div>
 <div created="20210515003327614" modified="20210515003415167" tags="NLP MainTree" title="Data">
 <pre>* IMDB Movie review dataset ([[Sentiment Classification]])</pre>
 </div>
@@ -12703,7 +12718,7 @@ tasks
 * consilidation
 * replication</pre>
 </div>
-<div created="20220509191625548" modified="20220509193036576" tags="ML root" title="Docker">
+<div created="20220509191625548" modified="20220607175341244" tags="ML root" title="Docker">
 <pre>&lt;&lt;toc-selective-expandable 'Docker' tag[Docker]&gt;&gt;</pre>
 </div>
 <div created="20220509191654149" modified="20220509191813502" tags="Docker" title="Docker Basics">
@@ -13244,6 +13259,48 @@ Tool to set up a write process to a [[Kinesis Data Stream]]</pre>
 </div>
 <div created="20220509194239316" modified="20220509194249715" tags="k8s" title="kubectl">
 <pre>Kubernetes command line tool</pre>
+</div>
+<div created="20220607174550040" modified="20220607175406341" tags="k8s [[Workflow Orchestration]]" title="Kubeflow">
+<pre>&lt;&lt;toc-selective-expandable 'Kubeflow' tag[Kubeflow]&gt;&gt;</pre>
+</div>
+<div created="20220607174614659" modified="20220607175321781" tags="Kubeflow InstallGuide" title="Kubeflow Install">
+<pre>
+```
+sudo snap install microk8s --classic
+
+sudo usermod -a -G microk8s ubuntu
+
+newgrp microk8s
+
+sudo chown -f -R ubuntu ~/.kube
+
+# log-out and back into the console
+
+microk8s enable dns storage ingress metallb:10.64.140.43-10.64.140.49
+
+microk8s enable community
+
+sudo snap install juju --classic
+
+juju bootstrap microk8s
+
+juju add-model kubeflow
+
+juju deploy kubeflow-lite --trust
+
+juju config dex-auth public-url=http://10.64.140.43.nip.io
+
+juju config oidc-gatekeeper public-url=http://10.64.140.43.nip.io
+
+juju config dex-auth static-username=admin
+
+juju config dex-auth static-password=admin
+
+# ssh to server with -D 9999 option for Socks5 forwarding on port localhost 9999
+
+http://10.64.140.43.nip.io
+```
+</pre>
 </div>
 <div created="20220509193445775" modified="20220509194118475" tags="k8s" title="Kubelet">
 <pre>Runs on all [[Worker k8s Node]] on the cluster, monitors the containers inside the [[Worker k8s Node]]</pre>
@@ -14421,6 +14478,9 @@ nltk.stem.*
 </div>
 <div created="20210820172200269" modified="20210820172213768" title="Story Mapping">
 <pre>Arrange user stories by priority and process</pre>
+</div>
+<div created="20220607144043599" modified="20220607144144307" tags="Python FrontEnd Dashboard" title="Streamlit">
+<pre>Dashboard UI in Python - more Simple but not mature compared to [[Dash]]</pre>
 </div>
 <div created="20210511172619995" modified="20210511172730493" tags="Security Definitions AWS" title="STS">
 <pre>Security Token Service web application to request temp. limited credentials for [[IAM]] users or authenticated users [[federated users]]</pre>
