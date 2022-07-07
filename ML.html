@@ -695,6 +695,8 @@ Error message and password prompt
 
 <li>DataFrame</li>
 
+<li>DataframeReader</li>
+
 <li>DataSet</li>
 
 <li>Datasets Machine Learning</li>
@@ -745,13 +747,13 @@ Error message and password prompt
 
 <li>DOR</li>
 
-<li>Draft of '_ML-Pipeline'</li>
-
 <li>Draft of 'ApproximatingSoftMax'</li>
 
 <li>Draft of 'Config'</li>
 
 <li>Draft of 'New Tiddler'</li>
+
+<li>Draft of 'Spark Cheat Sheet'</li>
 
 <li>Draft of 'VPG'</li>
 
@@ -1371,7 +1373,11 @@ Error message and password prompt
 
 <li>Spark Action</li>
 
+<li>Spark Cheat Sheet</li>
+
 <li>Spark Concepts</li>
+
+<li>SparkContext</li>
 
 <li>SparkRoot</li>
 
@@ -1527,8 +1533,16 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20220405212635886" modified="20220629165903043" tags="ML root MLRoot" title="_ML-Pipeline">
-<pre>! Data Security
+<div created="20220405212635886" modified="20220707125217666" tags="ML root MLRoot" title="_ML-Pipeline">
+<pre>! Data Ingestion
+
+!! Tools
+
+[[DeltaLake]]
+
+!! Methods
+
+! Data Security
 
 !! Tools
 
@@ -1577,9 +1591,13 @@ Error message and password prompt
 
 !! Methods
 
-! Parallelization
+! Parallelization/Scaling
 
 !! Tools
+
+* [[Spark]]
+* [[Ray]]
+* [[Ignite]]
 
 !! Methods
 
@@ -1672,7 +1690,7 @@ Error message and password prompt
 
 !! Methods
 
-! Visualization
+! Visualization &amp; Logging
 
 !! Tools
 
@@ -11003,7 +11021,7 @@ Error message and password prompt
 <div created="20220405204221973" modified="20220405205547147" title="$:/state/toc/Sampling-Sampling Error--1987545597">
 <pre>close</pre>
 </div>
-<div created="20220629164140155" list="[[Draft of '_ML-Pipeline']] GettingStarted" modified="20220629164140155" title="$:/StoryList">
+<div created="20220707124015474" list="[[Draft of 'Spark Cheat Sheet']] SparkContext DataframeReader SparkRoot [[Spark Concepts]] Driver _ML-Pipeline GettingStarted" modified="20220707134002700" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -12623,6 +12641,69 @@ https://towardsdatascience.com/a-data-lakes-worth-of-audio-datasets-b45b88cd4ad<
 * Built on RDD (Resillient (DAG), Distributed)
 * Metadata</pre>
 </div>
+<div created="20220707130232242" modified="20220707133949916" tags="Spark SparkClasses" title="DataframeReader">
+<pre>Class in the SQL package:
+
+Instance can be get through:
+
+```
+spark.sql.SparkSession.read()
+```
+
+
+But can also be called directly
+
+```
+spark.sql.DataFrameReader
+```
+
+!! General Usage
+
+method call for different data formats with a path variable. Path variable takes file or folder
+
+!!! Reading in multiple files
+
+Path can be set to folder, use options to define pattern or filter buy date
+
+!! Alternative call
+
+
+```
+ spark.sql.SparkSession.read().*methodname
+
+spark.sql.DataFrameReader.load(path=None, format=None, schema=None, **options)
+
+spark.sql.DataFrameReader.format('').load(path=None, schema=None, **options)
+```
+
+
+!! Setting options:
+
+
+```
+pyspark.sql.DataFrameReader.option(key,value)
+```
+Can take all keys from the special input format, other options are:
+
+keys:
+
+* timeZone: String for time-zone ID
+* pathGlobFilter: glob pattern to include files matching this pattern
+* modifiedBefore: Only include files before date: YYYY-MM-DDTHH:mm:ss
+* modifiedAfter: Only include files after date: YYYY-MM-DDTHH:mm:ss
+
+!!! Dataformats
+
+* csv [does not infer schema by default]
+* jdbc
+* json
+* orc
+* parquet
+* table [reads from a sql temp tableview]
+
+
+</pre>
+</div>
 <div created="20200318211721781" modified="20200318231626663" tags="djl [[Data Management]]" title="DataSet">
 <pre>Interface to a storeage of data used to train models.
 only one method that returns an iterable over [[Batch]]
@@ -12750,168 +12831,6 @@ checklist so that a user story is completed</pre>
 
 Checklist to get a [[User story]] started</pre>
 </div>
-<div created="20220405212635886" draft.of="_ML-Pipeline" draft.title="_ML-Pipeline" modified="20220629165938370" tags="ML root MLRoot" title="Draft of '_ML-Pipeline'">
-<pre>! Data Security
-
-!! Tools
-
-!! Methods
-
-! Data Versioning
-
-!! Tools
-
-!! Methods
-
-! Code Maintaining
-
-!! Tools
-
-[[GitHub]]
-
-!! Methods
-
-[[git]] , [[linting]]
-
-! Deployment
-
-!! Tools
-
-[[Docker]], [[Docker Swarm]], [[kubernetes]], [[MESOS]]
-
-!! Methods
-
-[[Container Orchestration]]
-
-
-! Data Gathering
-
-!! Tools
-* [[Datasets Machine Learning]]
-!! Methods
-
-
-! Workflow Orchestration
-
-!! Tools
-
-*[[Kubeflow]]
-*[[Airflow]]
-
-!! Methods
-
-! Parallelization
-
-!! Tools
-
-!! Methods
-
-! Data Storage
-
-!! Tools
-
-!! Methods
-
-! Data Loading/Streaming
-
-!! Tools
-
-!! Methods
-
-! Data Exploration
-
-!! Tools
-
-!! Methods
-
-! Data imputation
-
-!! Tools
-
-!! Methods
-
-! Data Sampling
-
-!! Tools
-
-!! Methods
-
-[[Sampling-Data]]
-
-! Data Scaling
-
-!! Tools
-
-!! Methods
-
-!!! Continuous
-* [[Standardization]]
-* [[Normalization]]
-* [[MinMax]]
-* [[MaxAbs]]
-* [[Quantile Transformation]]
-* [[Power Transformation]]
-* [[Log Transformation]]
- 
-
-! Feature Generation &amp; Reducing
-[[Feature Engineering]]
-
-!! Tools
-
-!! Methods
-
-!!! Continuous  
-[[Polynomial features]]
-
-!!! Categorical
-&quot;&quot;&quot;
-[[Polynomial features]]
-[[Encoding]]
-&quot;&quot;&quot;
-
-!!! NLP
-[[Feature Engineering NLP]]
-
-! Model Tuning
-
-!! Tools
-
-!! Methods
-&quot;&quot;&quot;
-[[Hyperparameter tuning]]
-[[Regularization]]
-&quot;&quot;&quot;
-
-! Model Training
-
-!! Tools
-
-!! Methods
-
-! Model Versioning
-
-!! Tools
-
-!! Methods
-
-! Visualization &amp; Logging
-
-!! Tools
-
-!! Methods
-
-!Front End
-
-!! Tools
-*  Demo: [[Gradio]] 
-*  Demo: [[Streamlit]]
-*  Demo: [[Dash]]
-*  In Jupyter Notebook : [[Voila]]
-*  Simple Enterprise Level: [[Django]]
-*  Web-app Enterprise Level: [[Flask]]
-</pre>
-</div>
 <div modified="20210628213250704" title="Draft of 'ApproximatingSoftMax'">
 <pre></pre>
 </div>
@@ -12920,6 +12839,14 @@ Checklist to get a [[User story]] started</pre>
 </div>
 <div modified="20210624155808933" title="Draft of 'New Tiddler'">
 <pre></pre>
+</div>
+<div created="20220707125352428" draft.of="Spark Cheat Sheet" draft.title="Spark Cheat Sheet" modified="20220707134000382" tags="Spark MainTree" title="Draft of 'Spark Cheat Sheet'">
+<pre>!!! Input/Output Data
+
+* [[SparkContext]]
+*[[DataframeReader]]
+
+</pre>
 </div>
 <div modified="20210502161427222" title="Draft of 'VPG'">
 <pre></pre>
@@ -14577,10 +14504,25 @@ Extensions are &lt;&lt;toc-selective-expandable 'Sampling' tag[SMOTE]&gt;&gt;</p
 
 &lt;&lt;toc-selective-expandable 'SparkAction' tag[Spark]&gt;&gt;</pre>
 </div>
+<div created="20220707125352428" modified="20220707133412622" tags="Spark MainTree" title="Spark Cheat Sheet">
+<pre>!!! Input/Output Data
+
+*[[DataframeReader]]
+
+</pre>
+</div>
 <div created="20210219033800948" modified="20220615172807408" tags="MLBasicsRoot Spark MainTree" title="Spark Concepts">
 <pre>&lt;&lt;toc-selective-expandable 'Concept' tag[Spark]&gt;&gt;</pre>
 </div>
-<div created="20210218170901840" modified="20220405203907796" tags="HPC MLBasicsRoot root" title="SparkRoot">
+<div created="20220707134011683" modified="20220707152946786" tags="SparkClasses Spark" title="SparkContext">
+<pre>Represents connection to Spark cluster
+
+!!! Data loading
+
+* textfile(String path, int minPartitions): one file with an URI, 
+* wholeTextFiles(String path, int minPartitions): All files in the defined path  </pre>
+</div>
+<div created="20210218170901840" modified="20220707125350868" tags="HPC MLBasicsRoot root" title="SparkRoot">
 <pre>Massive parallelization of queries and with UDF also possible to run custom. Focus is on a high-level query framework based on its own data format. Compared to [[Ray]] or [[Ignite]] the limitations to implement customized libraries is limited. Focused on OLAP applications without the possibility to communicate to other workers during processing a request.
 &lt;&lt;toc-selective-expandable 'MainTree' tag[Spark]&gt;&gt;</pre>
 </div>
